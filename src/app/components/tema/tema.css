@@ -1,0 +1,12 @@
+.tema-card {
+  width: 200px;
+  height: 100px;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}

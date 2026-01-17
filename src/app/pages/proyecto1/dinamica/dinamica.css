@@ -1,0 +1,21 @@
+.intro {
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.contador {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.final {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.mensaje-final {
+  margin-top: 15px;
+  font-style: italic;
+}
