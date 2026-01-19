@@ -1,6 +1,23 @@
-.home-container {
+.home {
+  min-height: 100vh;
+  background: #E7E5E7;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 60px;
+  padding-top: 60px;
+}
+
+.titulo {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 200px;
+  font-weight: 90;
+}
+
+.contenedor-tema {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }

@@ -1,44 +1,46 @@
-<h1>Dinámica del Decálogo del Desarrollo</h1>
+<div class="dinamica">
+  <h1>Dinámica  "Decálogo del desarrollo"</h1>
 
-<p class="intro">
-  A continuación se presentan distintas situaciones relacionadas con la vida personal,
-  social e institucional. Lee cada una con atención e identifica el principio del
-  Decálogo del Desarrollo que se encuentra ausente o debilitado.
-</p>
-
-<div *ngIf="!finalizado" class="tarjeta">
-  <p class="contador">
-    Situación {{ index + 1 }} de {{ dinamica.length }}
+  <p class="intro">
+    A continuación se presentan distintas situaciones relacionadas con la vida personal,
+    social e institucional. Lee cada una con atención e identifica el principio del
+    "Decálogo del desarrollo" que se encuentra ausente o debilitado.
   </p>
 
-  <p class="negativa">{{ actual.negativa }}</p>
+  <div *ngIf="!finalizado" class="tarjeta">
+    <p class="contador">
+      Situación {{ index + 1 }} de {{ dinamica.length }}
+    </p>
 
-  <div class="opciones">
-    <button
-      *ngFor="let opcion of actual.opciones"
-      (click)="seleccionar(opcion)"
-      [class.seleccionada]="opcion === seleccion">
-      {{ opcion }}
+    <p class="negativa">{{ actual.negativa }}</p>
+
+    <div class="opciones">
+      <button
+        *ngFor="let opcion of actual.opciones"
+        (click)="seleccionar(opcion)"
+        [class.seleccionada]="opcion === seleccion">
+        {{ opcion }}
+      </button>
+    </div>
+
+    <button class="validar" (click)="validar()" [disabled]="!seleccion">
+      Validar
     </button>
+
+    <div *ngIf="mostrarResultado" class="resultado">
+      <p><strong>Principio:</strong> {{ actual.correcta }}</p>
+      <p class="positiva">{{ actual.positiva }}</p>
+
+      <button (click)="siguiente()">Continuar</button>
+    </div>
   </div>
 
-  <button class="validar" (click)="validar()" [disabled]="!seleccion">
-    Validar
-  </button>
+  <div *ngIf="finalizado" class="final">
+    <h2>Resultados</h2>
 
-  <div *ngIf="mostrarResultado" class="resultado">
-    <p><strong>Principio:</strong> {{ actual.correcta }}</p>
-    <p class="positiva">{{ actual.positiva }}</p>
+    <p><strong>Respuestas correctas:</strong> {{ correctas }}</p>
+    <p><strong>Respuestas incorrectas:</strong> {{ incorrectas }}</p>
 
-    <button (click)="siguiente()">Continuar</button>
+    <p class="mensaje-final">{{ mensajeFinal }}</p>
   </div>
-</div>
-
-<div *ngIf="finalizado" class="final">
-  <h2>Resultados</h2>
-
-  <p><strong>Respuestas correctas:</strong> {{ correctas }}</p>
-  <p><strong>Respuestas incorrectas:</strong> {{ incorrectas }}</p>
-
-  <p class="mensaje-final">{{ mensajeFinal }}</p>
 </div>

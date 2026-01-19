@@ -18,68 +18,129 @@ export class Dinamica {
   correctas = 0;
   incorrectas = 0;
 
-  dinamica = [
-    {
-      negativa: 'Un proyecto colectivo fracasa porque cada área trabaja sin criterios comunes ni estructura compartida.',
-      correcta: 'Orden',
-      opciones: ['Orden', 'Disciplina', 'Responsabilidad'],
-      positiva: 'Los procesos se definen, se respetan roles y la coordinación permite avanzar sin fricciones.'
-    },
-    {
-      negativa: 'Los espacios públicos se deterioran porque nadie se siente responsable de su cuidado.',
-      correcta: 'Limpieza',
-      opciones: ['Limpieza', 'Orden', 'Honradez'],
-      positiva: 'La comunidad mantiene entornos dignos que favorecen la salud y la convivencia.'
-    },
-    {
-      negativa: 'Las decisiones se toman sin considerar sus consecuencias a largo plazo.',
-      correcta: 'Responsabilidad',
-      opciones: ['Responsabilidad', 'Honradez', 'Puntualidad'],
-      positiva: 'Se asumen compromisos entendiendo el impacto personal y colectivo de cada acción.'
-    },
-    {
-      negativa: 'Los acuerdos pierden valor cuando el tiempo de los demás no es respetado.',
-      correcta: 'Puntualidad',
-      opciones: ['Puntualidad', 'Orden', 'Respeto'],
-      positiva: 'El respeto a los horarios fortalece la confianza y la eficiencia social.'
-    },
-    {
-      negativa: 'Una sociedad se estanca cuando deja de cuestionarse y aprender.',
-      correcta: 'Deseo de superación',
-      opciones: ['Deseo de superación', 'Amor al trabajo', 'Disciplina'],
-      positiva: 'La búsqueda constante de mejora impulsa el desarrollo personal y colectivo.'
-    },
-    {
-      negativa: 'La normalización de pequeñas faltas erosiona la confianza institucional.',
-      correcta: 'Honradez',
-      opciones: ['Honradez', 'Responsabilidad', 'Respeto'],
-      positiva: 'La integridad fortalece las relaciones y legitima las acciones públicas y privadas.'
-    },
-    {
-      negativa: 'El poder se impone sin reconocer la dignidad ni la voz de otros.',
-      correcta: 'Respeto al derecho de los demás',
-      opciones: ['Respeto al derecho de los demás', 'Orden', 'Disciplina'],
-      positiva: 'La convivencia se construye reconociendo límites, libertades y diferencias.'
-    },
-    {
-      negativa: 'Las normas se aplican solo cuando convienen a ciertos intereses.',
-      correcta: 'Respeto a la ley y a los reglamentos',
-      opciones: ['Respeto a la ley y a los reglamentos', 'Honradez', 'Autoridad'],
-      positiva: 'El cumplimiento equitativo de las reglas genera justicia y estabilidad social.'
-    },
-    {
-      negativa: 'Las actividades se realizan solo por obligación, sin sentido ni propósito.',
-      correcta: 'Amor al trabajo',
-      opciones: ['Amor al trabajo', 'Responsabilidad', 'Superación'],
-      positiva: 'El compromiso con la labor dignifica a la persona y fortalece a la sociedad.'
-    },
-    {
-      negativa: 'Los recursos se consumen sin visión, comprometiendo el futuro común.',
-      correcta: 'Afán por el ahorro y la inversión',
-      opciones: ['Afán por el ahorro y la inversión', 'Honradez', 'Orden'],
-      positiva: 'La administración consciente permite crecimiento sostenible y bienestar colectivo.'
-    }
-  ];
+dinamica = [
+  {
+    negativa:
+      'Un grupo impone sus decisiones sin escuchar a las minorías, justificándose en la mayoría numérica y el poder adquirido.',
+    correcta: 'Respeto al derecho de los demás',
+    opciones: [
+      'Autoridad',
+      'Respeto al derecho de los demás',
+      'Orden'
+    ],
+    positiva:
+      'Reconocer los derechos ajenos es esencial para una convivencia justa y plural.'
+  },
+  {
+    negativa:
+      'En una institución pública, cada departamento define sus propios criterios de trabajo sin una estructura común. Aunque todos cumplen con sus tareas individuales, los resultados generales son inconsistentes y se duplican esfuerzos.',
+    correcta: 'Orden',
+    opciones: [
+      'Responsabilidad',
+      'Respeto a la ley y a los reglamentos',
+      'Orden'
+    ],
+    positiva:
+      'Cuando existe una organización clara de procesos, funciones y objetivos, el trabajo colectivo se vuelve coherente y eficiente.'
+  },
+  {
+    negativa:
+      'Las normas se aplican de manera selectiva, dependiendo del estatus o la influencia de las personas involucradas.',
+    correcta: 'Respeto a la ley y a los reglamentos',
+    opciones: [
+      'Honradez',
+      'Responsabilidad',
+      'Respeto a la ley y a los reglamentos'
+    ],
+    positiva:
+      'La aplicación equitativa de las leyes garantiza estabilidad y justicia social.'
+  },
+  {
+    negativa:
+      'Un espacio comunitario recién rehabilitado comienza a deteriorarse rápidamente. No hay vandalismo evidente, pero pequeñas acciones cotidianas van acumulándose hasta generar un entorno descuidado.',
+    correcta: 'Limpieza',
+    opciones: [
+      'Responsabilidad',
+      'Limpieza',
+      'Respeto al derecho de los demás'
+    ],
+    positiva:
+      'La conservación consciente de los espacios refleja respeto por la comunidad y mejora la calidad de vida colectiva.'
+  },
+  {
+    negativa:
+      'El trabajo se percibe únicamente como una obligación necesaria para subsistir, sin compromiso ni sentido social.',
+    correcta: 'Amor al trabajo',
+    opciones: [
+      'Responsabilidad',
+      'Deseo de superación',
+      'Amor al trabajo'
+    ],
+    positiva:
+      'Valorar el trabajo dignifica a la persona y fortalece el desarrollo colectivo.'
+  },
+  {
+    negativa:
+      'Una decisión gubernamental genera beneficios inmediatos, pero ignora impactos sociales y ambientales que afectarán a generaciones futuras.',
+    correcta: 'Responsabilidad',
+    opciones: [
+      'Honradez',
+      'Responsabilidad',
+      'Deseo de superación'
+    ],
+    positiva:
+      'Asumir responsabilidades implica considerar consecuencias más allá del corto plazo y del interés individual.'
+  },
+  {
+    negativa:
+      'Reuniones clave se retrasan constantemente. Aunque el trabajo se realiza, los tiempos imprecisos generan desgaste, desconfianza y pérdidas económicas.',
+    correcta: 'Puntualidad',
+    opciones: [
+      'Orden',
+      'Amor al trabajo',
+      'Puntualidad'
+    ],
+    positiva:
+      'Respetar el tiempo de los demás fortalece la cooperación y el compromiso colectivo.'
+  },
+  {
+    negativa:
+      'Pequeños actos deshonestos son tolerados porque “no afectan a nadie directamente”, hasta que se normalizan y afectan la credibilidad institucional.',
+    correcta: 'Honradez',
+    opciones: [
+      'Responsabilidad',
+      'Respeto al derecho de los demás',
+      'Honradez'
+    ],
+    positiva:
+      'La integridad cotidiana construye confianza y solidez en las relaciones sociales.'
+  },
+  {
+    negativa:
+      'Una organización permanece estancada porque evita cuestionar prácticas obsoletas, aun cuando el contexto social y tecnológico ha cambiado.',
+    correcta: 'Deseo de superación',
+    opciones: [
+      'Responsabilidad',
+      'Deseo de superación',
+      'Respeto a la ley y a los reglamentos'
+    ],
+    positiva:
+      'El impulso por mejorar permite adaptarse, innovar y crecer de forma consciente.'
+  },
+  {
+    negativa:
+      'Los recursos económicos y naturales se utilizan sin planeación, priorizando beneficios inmediatos sobre la sostenibilidad futura.',
+    correcta: 'Afán por el ahorro y la inversión',
+    opciones: [
+      'Responsabilidad',
+      'Honradez',
+      'Afán por el ahorro y la inversión'
+    ],
+    positiva:
+      'La gestión consciente de los recursos permite estabilidad, crecimiento y bienestar a largo plazo.'
+  }
+];
+
 
   seleccionar(opcion: string) {
     this.seleccion = opcion;
