@@ -1,0 +1,38 @@
+<div class="autora">
+  <h1 class="titulo">AUTORA</h1>
+  <div class="perfil">
+    <img src="/mifoto.jpeg" alt="Foto autora" class="foto-perfil">
+
+    <div class="datos">
+      <p><strong>Nombre:</strong> Nicole Guzmán Peña</p>
+      <p><strong>Correo:</strong> nguzman24@alumnos.uaq.mx</p>
+      <p><strong>Carrera:</strong> Ingeniería de Software</p>
+      <p><strong>Materia:</strong> Tópico II</p>
+      <p><strong>Institución:</strong> FIF UAQ</p>
+    </div>
+  </div>
+
+  <h2 class="titulo">GALERÍA</h2>
+
+  <div class="galeria">
+    <img
+      *ngFor="let foto of galerias[indiceGaleria]"
+      [src]="foto"
+      alt="Imagen galería"
+    >
+  </div>
+
+  <div class="controles">
+    <button (click)="anterior()" [disabled]="indiceGaleria === 0">
+      ◀
+    </button>
+
+    <span class="indicador">
+      {{ indiceGaleria + 1 }} / {{ galerias.length }}
+    </span>
+
+    <button (click)="siguiente()" [disabled]="indiceGaleria === galerias.length - 1">
+      ▶
+    </button>
+  </div>
+</div>

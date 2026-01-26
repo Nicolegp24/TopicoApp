@@ -1,4 +1,9 @@
-<a class="tema" routerLink="/proyecto1">
-  <h2 class="titulo">DECÁLOGO</h2>
+<a
+  class="tema {{ color }}"
+  [routerLink]="ruta"
+>
+  <span class="titulo">
+    {{ texto }}
+  </span>
   <p class="mas">Más</p>
 </a>

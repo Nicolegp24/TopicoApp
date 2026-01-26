@@ -1,7 +1,6 @@
 .tema {
   width: 300px;
   height: 260px;
-  background: #D99FBE;
   border-radius: 20px;
 
   display: flex;
@@ -14,6 +13,22 @@
 
 a {
   text-decoration: none;
+}
+
+.tema.rosa {
+  background: #D99FBE;
+}
+
+.tema.morado {
+  background: #A29FD9;
+}
+
+.tema.amarillo {
+  background: #D9CE9F;
+}
+
+.tema.verde {
+  background: #9FD9B2;
 }
 
 .titulo {

@@ -1,0 +1,27 @@
+<div class="dinamica">
+
+  <h1 class="titulo">DESAFÍOS Y METAS</h1>
+
+  <p class="intro">
+    Descubre un desafío inspirado en los hábitos de la gente altamente efectiva.
+    Elige una tarjeta y reflexiona sobre el reto que se revela.
+  </p>
+
+  <div class="tablero">
+    <div
+      class="tarjeta {{ t.volteada ? 'volteada' : '' }}"
+      *ngFor="let t of tarjetas"
+      (click)="voltear(t)"
+    >
+      <div class="cara frente {{ t.color }}">
+        <p>¿?</p>
+      </div>
+
+      <div class="cara reverso {{ t.color }}">
+        <h3>{{ t.titulo }}</h3>
+        <p>{{ t.texto }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
