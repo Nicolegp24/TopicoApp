@@ -1,0 +1,19 @@
+<div class="row">
+  <h2 class="row-titulo">Recomendaciones </h2>
+
+  <div class="carrusel">
+    <button class="flecha izquierda" (click)="scrollIzquierda()">&#10094;</button>
+
+    <div class="contenedor" #contenedor>
+      <div
+        class="card"
+        *ngFor="let peli of peliculas"
+        (click)="irProyecto()"
+      >
+        <img [src]="peli.img" [alt]="peli.titulo" />
+      </div>
+    </div>
+
+    <button class="flecha derecha" (click)="scrollDerecha()">&#10095;</button>
+  </div>
+</div>
