@@ -1,5 +1,5 @@
 <div class="row">
-  <h2 class="row-titulo">Recomendaciones </h2>
+  <h2 class="titulo">{{titulo}}</h2>
 
   <div class="carrusel">
     <button class="flecha izquierda" (click)="scrollIzquierda()">&#10094;</button>
@@ -7,12 +7,13 @@
     <div class="contenedor" #contenedor>
       <div
         class="card"
-        *ngFor="let peli of peliculas"
-        (click)="irProyecto()"
+        *ngFor="let item of items"
+        [routerLink]="item.ruta"
       >
-        <img [src]="peli.img" [alt]="peli.titulo" />
+        <img [src]="item.img">
       </div>
     </div>
+
 
     <button class="flecha derecha" (click)="scrollDerecha()">&#10095;</button>
   </div>

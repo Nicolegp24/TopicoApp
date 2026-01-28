@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   height: 85vh;
-  background-image: url('/assets/hero.jpg');
+  background-image: url('/netflix/mifoto.jpeg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -30,19 +30,23 @@
 }
 
 .titulo {
-  font-size: 56px;
-  font-weight: 700;
+  font-family: "WindSong", cursive;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 48px;
   margin-bottom: 20px;
 }
 
 .subtitulo {
+  font-family: "Nunito Sans", sans-serif;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
   padding-top: 30px;
   color: #ffffff;
 }
 
 .descripcion {
+  font-family: "Nunito Sans", sans-serif;
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 25px;

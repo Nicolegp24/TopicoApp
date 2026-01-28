@@ -11,8 +11,8 @@ import { Netflix } from './pages/netflix/netflix';
 
 
 export const routes: Routes = [
-  //{path: '', component: Home},
-  {path: '', component: Netflix},
+  {path: '', component: Home},
+  {path: 'home', component: Home},
   {path: 'proyecto1', component: Proyecto1},
   {path: 'proyecto1/decalogo', component: Decalogo},
   {path: 'proyecto1/dinamica', component: Dinamica},
@@ -20,7 +20,7 @@ export const routes: Routes = [
   {path: 'proyecto2', component: Proyecto2},
   {path: 'proyecto2/actividad2', component: Actividad2},
   {path: 'proyecto2/dinamica2', component: Dinamica2},
-  //{path: 'netflix', component: Netflix},
+  {path: 'netflix', component: Netflix},
 ];
 
 

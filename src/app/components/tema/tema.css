@@ -31,6 +31,10 @@ a {
   background: #9FD9B2;
 }
 
+.tema.rojo {
+  background: #ee867a;
+}
+
 .titulo {
   font-family: 'Hubballi', sans-serif;
   font-size: 45px;

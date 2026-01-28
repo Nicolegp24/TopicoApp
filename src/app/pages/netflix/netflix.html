@@ -1,3 +1,15 @@
-<app-navbar></app-navbar>
-<app-banner></app-banner>
-<app-movie-row></app-movie-row>
+<div class="netflix-page">
+  <app-navbar></app-navbar>
+  <app-banner></app-banner>
+
+  <app-movie-row
+    titulo="Recomendaciones"
+    [items]="peliculas1"></app-movie-row>
+  <app-movie-row
+    titulo="Proyectos"
+    [items]="peliculas2"></app-movie-row>
+  <app-movie-row
+    titulo="Favoritos"
+    [items]="peliculas3"></app-movie-row>
+
+</div>
