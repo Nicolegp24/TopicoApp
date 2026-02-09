@@ -8,6 +8,10 @@ import { Proyecto2 } from './pages/proyecto2/proyecto2';
 import { Actividad2 } from './pages/proyecto2/actividad2/actividad2';
 import { Dinamica2 } from './pages/proyecto2/dinamica2/dinamica2';
 import { Netflix } from './pages/netflix/netflix';
+import { Yokoi } from './pages/yokoi/yokoi';
+import { Kasuga } from './pages/kasuga/kasuga';
+import { Mexjap } from './pages/mexjap/mexjap';
+import { Infografia } from './pages/infografia/infografia';
 
 
 export const routes: Routes = [
@@ -21,6 +25,10 @@ export const routes: Routes = [
   {path: 'proyecto2/actividad2', component: Actividad2},
   {path: 'proyecto2/dinamica2', component: Dinamica2},
   {path: 'netflix', component: Netflix},
+  {path: 'yokoi', component: Yokoi},
+  {path: 'kasuga', component: Kasuga},
+  {path: 'mexjap', component: Mexjap},
+  {path: 'infografia', component: Infografia}
 ];
 
 

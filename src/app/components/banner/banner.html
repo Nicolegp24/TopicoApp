@@ -1,24 +1,48 @@
-<div class="hero">
+<div class="hero" [ngStyle]="{'background-image': 'url(' + imagen + ')'}">
   <div class="overlay"></div>
 
   <div class="contenido">
-    <h1 class="titulo">Nicole Guzmán Peña</h1>
-    <h2 class="subtitulo">Portafolio proyectos Tópico 2</h2>
-    <p class="descripcion">
-      Estudiante de ingeniería de software en la Universidad Autónoma de Querétaro.
-    </p>
+    <h1 class="titulo">{{ titulo }}</h1>
+    <h2 class="subtitulo">{{ subtitulo }}</h2>
+    <p class="descripcion">{{ descripcion }}</p>
 
     <div class="botones">
-      <button class="btn play" routerLink="/home">
-        <mat-icon>play_arrow</mat-icon>
-        Reproducir
-      </button>
 
-      <button class="btn info" routerLink="/autora">
-        <mat-icon>info</mat-icon>
-        Más información
-      </button>
+      <ng-container *ngIf="!botonPrincipalExterno; else externo1">
+        <button class="btn play" [routerLink]="botonPrincipalRuta">
+          <mat-icon>play_arrow</mat-icon>
+          Reproducir
+        </button>
+      </ng-container>
+
+      <ng-template #externo1>
+        <a class="btn play"
+          [href]="botonPrincipalRuta"
+          target="_blank"
+          rel="noopener">
+          <mat-icon>play_arrow</mat-icon>
+          Reproducir
+        </a>
+      </ng-template>
+
+
+      <!-- BOTÓN SECUNDARIO -->
+      <ng-container *ngIf="!botonSecundarioExterno; else externo2">
+        <button class="btn info" [routerLink]="botonSecundarioRuta">
+          <mat-icon>info</mat-icon>
+          Más información
+        </button>
+      </ng-container>
+
+      <ng-template #externo2>
+        <a class="btn info"
+          [href]="botonSecundarioRuta"
+          target="_blank"
+          rel="noopener">
+          <mat-icon>info</mat-icon>
+          Más información
+        </a>
+      </ng-template>
     </div>
-    
   </div>
 </div>

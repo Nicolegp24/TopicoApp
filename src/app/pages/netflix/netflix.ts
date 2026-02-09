@@ -12,13 +12,13 @@ import { MovieRow } from '../../components/movie-row/movie-row';
 export class Netflix {
 
   peliculas1 = [
-    { img: '/netflix/1.webp', ruta: '/proyecto1' },
-    { img: '/netflix/2.webp', ruta: '/proyecto2' },
-    { img: '/netflix/3.webp', ruta: '/proyecto1' },
-    { img: '/netflix/4.webp', ruta: '/proyecto2' },
-    { img: '/netflix/5.webp', ruta: '/proyecto1' },
-    { img: '/netflix/6.webp', ruta: '/proyecto2' },
-    { img: '/netflix/7.webp', ruta: '/proyecto1' }
+    { img: '/netflix/yokoi.webp', ruta: '/yokoi' },
+    { img: '/netflix/yokoi2.jpg', ruta: '/proyecto2' },
+    { img: '/netflix/yokoi3.webp', ruta: '/proyecto1' },
+    { img: '/netflix/carlos.webp', ruta: '/kasuga' },
+    { img: '/netflix/carlos2.webp', ruta: '/proyecto1' },
+    { img: '/netflix/carlos3.webp', ruta: '/proyecto2' },
+    { img: '/netflix/mexjap.jpg', ruta: '/mexjap' }
   ];
 
   peliculas2 = [
