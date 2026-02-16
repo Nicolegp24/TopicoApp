@@ -1,0 +1,20 @@
+<div class="diagram-wrapper">
+  <h2>Diagrama Ishikawa</h2>
+
+  <!-- Línea central -->
+  <div class="central-line">
+    <span class="problem">{{data.problem}}</span>
+  </div>
+
+  <!-- Contenedor de causas -->
+  <div class="causes">
+    <div
+      class="cause-item"
+      *ngFor="let c of data.causes; let i = index"
+      [ngClass]="{'top': i % 2 === 0, 'bottom': i % 2 !== 0}"
+      [style.left.%]="10 + i * (80 / data.causes.length)"
+      [style.background]="colors[i % colors.length]">
+      {{c.name}}
+    </div>
+  </div>
+</div>

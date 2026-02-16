@@ -1,0 +1,94 @@
+<div class="questionnaire-wrapper">
+  <div class="background-shapes"></div>
+
+  <div class="questionnaire-card">
+
+    <h2 class="title">Identificación del Problema</h2>
+
+    <div class="section">
+      <label>Problema principal</label>
+      <textarea [(ngModel)]="data.problem" (ngModelChange)="save()"></textarea>    </div>
+
+    <div class="section">
+      <label>Contexto</label>
+      <textarea [(ngModel)]="data.context" (ngModelChange)="save()"></textarea>
+    </div>
+
+    <div class="section">
+      <label>Causas</label>
+      <div class="row">
+        <input [(ngModel)]="newCause" placeholder="Describe la causa">
+        <input type="number" min="1" max="10" [(ngModel)]="newImpact">
+        <button (click)="addCause()">Agregar</button>
+      </div>
+      <ul>
+        <li *ngFor="let c of data.causes">
+          {{c.name}} (Impacto: {{c.impact}})
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <label>Efectos</label>
+      <div class="row">
+        <input [(ngModel)]="newEffect">
+        <button (click)="addItem('effect', newEffect)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let e of data.effects">{{e}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>Factores Internos</label>
+      <div class="row">
+        <input [(ngModel)]="newInternal">
+        <button (click)="addItem('internal', newInternal)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let i of data.internalFactors">{{i}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>Factores Externos</label>
+      <div class="row">
+        <input [(ngModel)]="newExternal">
+        <button (click)="addItem('external', newExternal)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let e of data.externalFactors">{{e}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>Fortalezas</label>
+      <div class="row">
+        <input [(ngModel)]="newStrength">
+        <button (click)="addItem('strength', newStrength)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let s of data.strengths">{{s}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>Debilidades</label>
+      <div class="row">
+        <input [(ngModel)]="newWeakness">
+        <button (click)="addItem('weakness', newWeakness)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let w of data.weaknesses">{{w}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>Actores involucrados</label>
+      <div class="row">
+        <input [(ngModel)]="newStakeholder">
+        <button (click)="addItem('stakeholder', newStakeholder)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let s of data.stakeholders">{{s}}</li></ul>
+    </div>
+
+    <button type="button" class="submit-btn" (click)="submit()">
+      Generar Diagramas
+    </button>
+
+    <button type="button" class="clear-btn" (click)="limpiarDatos()">
+      Limpiar datos
+    </button>
+
+  </div>
+</div>

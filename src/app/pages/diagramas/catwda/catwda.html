@@ -1,0 +1,45 @@
+<div class="diagram-wrapper">
+  <h2>CATWDA</h2>
+
+  <div class="diagram-section">
+    <p><strong>Clientes:</strong></p>
+    <div class="card-container">
+      <div class="card" *ngFor="let s of data.stakeholders">{{s}}</div>
+    </div>
+  </div>
+
+  <div class="diagram-section">
+    <p><strong>Actores:</strong></p>
+    <div class="card-container">
+      <div class="card" *ngFor="let s of data.stakeholders">{{s}}</div>
+    </div>
+  </div>
+
+  <div class="diagram-section">
+    <p><strong>Transformación:</strong></p>
+    <div class="card-container">
+      <div class="card"><span>{{data.problem}}</span></div>
+    </div>
+  </div>
+
+  <div class="diagram-section">
+    <p><strong>Weltanschauung:</strong></p>
+    <div class="card-container">
+      <div class="card" *ngFor="let s of data.internalFactors">{{s}}</div>
+    </div>
+  </div>
+
+  <div class="diagram-section">
+    <p><strong>Dueño:</strong></p>
+    <div class="card-container">
+      <div class="card" *ngFor="let s of data.stakeholders">{{s}}</div>
+    </div>
+  </div>
+
+  <div class="diagram-section">
+    <p><strong>Ambiente:</strong></p>
+    <div class="card-container">
+      <div class="card" *ngFor="let s of data.externalFactors">{{s}}</div>
+    </div>
+  </div>
+</div>

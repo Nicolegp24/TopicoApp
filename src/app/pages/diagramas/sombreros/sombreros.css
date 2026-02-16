@@ -1,0 +1,94 @@
+.diagram-wrapper {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #2c3e50;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.diagram-wrapper h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* Sección de cada sombrero */
+.sombrero {
+  border-radius: 14px;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Colores por sombrero */
+.sombrero-blanco {
+  background: #f0f0f0;
+  color: #2c3e50;
+}
+
+.sombrero-rojo {
+  background: #e74c3c;
+}
+
+.sombrero-negro {
+  background: #2c3e50;
+}
+
+.sombrero-amarillo {
+  background: #f1c40f;
+  color: #2c3e50;
+}
+
+.sombrero-verde {
+  background: #27ae60;
+}
+
+.sombrero-azul {
+  background: #2980b9;
+}
+
+/* Título de cada sombrero */
+.sombrero p:first-child {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Tarjetas individuales */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card {
+  background: rgba(255,255,255,0.25);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.35);
+}
+
+/* Para texto simple */
+.card span {
+  display: block;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .diagram-wrapper {
+    padding: 20px;
+  }
+}

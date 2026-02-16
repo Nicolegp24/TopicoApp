@@ -1,0 +1,25 @@
+<div class="diagram-wrapper">
+  <h2>Matriz FODA</h2>
+
+  <div class="grid">
+    <div>
+      <h3>Fortalezas</h3>
+      <ul><li *ngFor="let s of data.strengths">{{s}}</li></ul>
+    </div>
+
+    <div>
+      <h3>Oportunidades</h3>
+      <ul><li *ngFor="let e of data.externalFactors">{{e}}</li></ul>
+    </div>
+
+    <div>
+      <h3>Debilidades</h3>
+      <ul><li *ngFor="let w of data.weaknesses">{{w}}</li></ul>
+    </div>
+
+    <div>
+      <h3>Amenazas</h3>
+      <ul><li *ngFor="let i of data.internalFactors">{{i}}</li></ul>
+    </div>
+  </div>
+</div>
