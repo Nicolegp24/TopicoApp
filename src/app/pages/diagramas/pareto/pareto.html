@@ -2,28 +2,29 @@
   <div class="background-shapes"></div>
 
   <div class="pareto-card">
-    <h2 class="title">Diagrama de Pareto</h2>
+    <h2 class="title">Diagrama de Pareto - Tabla</h2>
 
     <div *ngIf="items.length === 0" class="empty">
       No hay datos suficientes.
     </div>
 
-    <div *ngFor="let item of items" class="bar-container">
-      <div class="bar-label">
-        {{item.name}} ({{item.impact}})
-      </div>
-
-      <div class="bar-bg">
-        <div
-          class="bar-fill"
-          [style.width.%]="item.percentage">
-        </div>
-      </div>
-
-      <div class="percentage">
-        {{item.percentage | number:'1.0-1'}}%
-      </div>
-    </div>
-
+    <table *ngIf="items.length > 0" class="pareto-table">
+      <thead>
+        <tr>
+          <th>Causa</th>
+          <th>Puntuación</th>
+          <th>% Total</th>
+          <th>% Acumulado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items" [ngClass]="{'highlight': item.highlight}">
+          <td>{{item.name}}</td>
+          <td>{{item.impact}}</td>
+          <td>{{item.percentage | number:'1.1-1'}}%</td>
+          <td>{{item.cumulative | number:'1.1-1'}}%</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

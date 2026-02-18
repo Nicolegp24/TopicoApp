@@ -1,20 +1,35 @@
 <div class="diagram-wrapper">
   <h2>Diagrama Ishikawa</h2>
 
-  <!-- Línea central -->
-  <div class="central-line">
-    <span class="problem">{{data.problem}}</span>
-  </div>
+  <!-- Problema central -->
+  <div class="problem">{{data.problem}}</div>
 
-  <!-- Contenedor de causas -->
-  <div class="causes">
-    <div
-      class="cause-item"
-      *ngFor="let c of data.causes; let i = index"
-      [ngClass]="{'top': i % 2 === 0, 'bottom': i % 2 !== 0}"
-      [style.left.%]="10 + i * (80 / data.causes.length)"
-      [style.background]="colors[i % colors.length]">
-      {{c.name}}
-    </div>
-  </div>
+  <!-- Causas principales -->
+  <ul class="cause-list">
+    <ng-container *ngFor="let cause of data.causes; let i = index">
+      <li class="root-cause">
+        <div class="cause">{{cause.name}} (Impacto: {{cause.impact}})</div>
+
+        <!-- Subcausas -->
+        <ul *ngIf="cause.subCauses?.length" class="subcause-list">
+          <ng-container *ngFor="let sub of cause.subCauses">
+            <li>
+              <div class="subcause">{{sub.name}} (Impacto: {{sub.impact}})</div>
+
+              <!-- Sub-subcausas -->
+              <ul *ngIf="sub.subCauses?.length" class="subsubcause-list">
+                <ng-container *ngFor="let subsub of sub.subCauses">
+                  <li>
+                    <div class="subsubcause">{{subsub.name}} (Impacto: {{subsub.impact}})</div>
+                  </li>
+                </ng-container>
+              </ul>
+
+            </li>
+          </ng-container>
+        </ul>
+
+      </li>
+    </ng-container>
+  </ul>
 </div>

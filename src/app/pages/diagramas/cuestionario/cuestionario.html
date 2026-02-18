@@ -3,92 +3,186 @@
 
   <div class="questionnaire-card">
 
-    <h2 class="title">Identificación del Problema</h2>
-
+    <h2 class="title">Ayúdanos a responder las siguientes preguntas</h2>
     <div class="section">
-      <label>Problema principal</label>
-      <textarea [(ngModel)]="data.problem" (ngModelChange)="save()"></textarea>    </div>
-
-    <div class="section">
-      <label>Contexto</label>
+      <label>¿Cuál es el problema principal?</label>
+      <textarea [(ngModel)]="data.problem" (ngModelChange)="save()"></textarea>
+      <label>¿Cuál es el contexto en el que desarrolla esta problematica?</label>
       <textarea [(ngModel)]="data.context" (ngModelChange)="save()"></textarea>
     </div>
 
+
+
     <div class="section">
-      <label>Causas</label>
+      <label>¿Qué aspectos originan el problema y su impacto? (1-poco/10-demasiado)</label>
       <div class="row">
         <input [(ngModel)]="newCause" placeholder="Describe la causa">
-        <input type="number" min="1" max="10" [(ngModel)]="newImpact">
-        <button (click)="addCause()">Agregar</button>
+        <input type="number" min="1" max="10" [(ngModel)]="newImpact" placeholder="Impacto 1-10">
+        <button (click)="addMainCause()">Agregar causa </button>
+        <button (click)="addSubCause()">Agregar subcausa</button>
+        <button (click)="popCauseStack()">subir</button>
       </div>
+
       <ul>
-        <li *ngFor="let c of data.causes">
-          {{c.name}} (Impacto: {{c.impact}})
+        <li *ngFor="let cause of data.causes; trackBy: trackByName">
+          {{cause.name}} (Impacto: {{cause.impact}})
+          <ul *ngIf="cause.subCauses?.length">
+            <ng-container *ngFor="let sub of cause.subCauses; trackBy: trackByName">
+              <li>
+                {{sub.name}} (Impacto: {{sub.impact}})
+                <ul *ngIf="sub.subCauses?.length">
+                  <ng-container *ngFor="let subsub of sub.subCauses; trackBy: trackByName">
+                    <li>{{subsub.name}} (Impacto: {{subsub.impact}})</li>
+                  </ng-container>
+                </ul>
+              </li>
+            </ng-container>
+          </ul>
         </li>
       </ul>
     </div>
 
-    <div class="section">
-      <label>Efectos</label>
-      <div class="row">
-        <input [(ngModel)]="newEffect">
-        <button (click)="addItem('effect', newEffect)">Agregar</button>
-      </div>
-      <ul><li *ngFor="let e of data.effects">{{e}}</li></ul>
-    </div>
 
+    <h2 class="title">Retrospección</h2>
     <div class="section">
-      <label>Factores Internos</label>
+      <label>¿Qué aspectos te hacen sobresalir o diferenciarte?</label>
       <div class="row">
-        <input [(ngModel)]="newInternal">
-        <button (click)="addItem('internal', newInternal)">Agregar</button>
-      </div>
-      <ul><li *ngFor="let i of data.internalFactors">{{i}}</li></ul>
-    </div>
-
-    <div class="section">
-      <label>Factores Externos</label>
-      <div class="row">
-        <input [(ngModel)]="newExternal">
-        <button (click)="addItem('external', newExternal)">Agregar</button>
-      </div>
-      <ul><li *ngFor="let e of data.externalFactors">{{e}}</li></ul>
-    </div>
-
-    <div class="section">
-      <label>Fortalezas</label>
-      <div class="row">
-        <input [(ngModel)]="newStrength">
+        <input [(ngModel)]="newStrength" placeholder="Fortaleza">
         <button (click)="addItem('strength', newStrength)">Agregar</button>
       </div>
       <ul><li *ngFor="let s of data.strengths">{{s}}</li></ul>
     </div>
 
     <div class="section">
-      <label>Debilidades</label>
+      <label>¿Qué limitaciones podrían afectar tu desempeño?</label>
       <div class="row">
-        <input [(ngModel)]="newWeakness">
+        <input [(ngModel)]="newWeakness" placeholder="Debilidad">
         <button (click)="addItem('weakness', newWeakness)">Agregar</button>
       </div>
       <ul><li *ngFor="let w of data.weaknesses">{{w}}</li></ul>
     </div>
 
     <div class="section">
-      <label>Actores involucrados</label>
+      <label>¿Qué factores que aún no aplicas podrían favorecerte?</label>
       <div class="row">
-        <input [(ngModel)]="newStakeholder">
+        <input [(ngModel)]="newExternal" placeholder="Oportunidad">
+        <button (click)="addItem('external', newExternal)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let e of data.externalFactors">{{e}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>¿Qué riesgos exteriores podrían afectarte?</label>
+      <div class="row">
+        <input [(ngModel)]="newInternal" placeholder="Amenaza">
+        <button (click)="addItem('internal', newInternal)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let i of data.internalFactors">{{i}}</li></ul>
+    </div>
+
+    <h2 class="title">Según tu sistema</h2>
+    <div class="section">
+      <label>¿Quiénes se ven afectados?</label>
+      <div class="row">
+        <input [(ngModel)]="newStakeholder" placeholder="Clientes">
         <button (click)="addItem('stakeholder', newStakeholder)">Agregar</button>
       </div>
       <ul><li *ngFor="let s of data.stakeholders">{{s}}</li></ul>
     </div>
 
-    <button type="button" class="submit-btn" (click)="submit()">
-      Generar Diagramas
-    </button>
+    <div class="section">
+      <label>¿Quién realiza las actividades principales?</label>
+      <div class="row">
+        <input [(ngModel)]="newActors" placeholder="Actor">
+        <button (click)="addItem('actor', newActors)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let a of data.actors">{{a}}</li></ul>
+    </div>
 
-    <button type="button" class="clear-btn" (click)="limpiarDatos()">
-      Limpiar datos
-    </button>
+    <div class="section">
+      <label>¿Qué cambio produce?</label>
+      <div class="row">
+        <input [(ngModel)]="newTransformation" placeholder="Transformación">
+        <button (click)="addItem('transformation', newTransformation)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let t of data.transformation">{{t}}</li></ul>
+    </div>
 
+    <div class="section">
+      <label>¿Cuál es su visión?</label>
+      <div class="row">
+        <input [(ngModel)]="newWeltanschauung" placeholder="Visión">
+        <button (click)="addItem('weltanschauung', newWeltanschauung)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let w of data.weltanschauung">{{w}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>¿Quién tiene autoridad para cambiarlo o detenerlo?</label>
+      <div class="row">
+        <input [(ngModel)]="newOwner" placeholder="Dueño">
+        <button (click)="addItem('owner', newOwner)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let o of data.owner">{{o}}</li></ul>
+    </div>
+
+    <h2 class="title">Profundicemos</h2>
+    <div class="section">
+      <label>Menciona datos funfamentados sobre la problemática/sistema.</label>
+      <div class="row">
+        <input [(ngModel)]="newWhiteHat">
+        <button (click)="addItem('hatWhite', newWhiteHat)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let h of data.hatWhite">{{h}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>¿Que sientes al respecto?</label>
+      <div class="row">
+        <input [(ngModel)]="newRedHat" >
+        <button (click)="addItem('hatRed', newRedHat)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let h of data.hatRed">{{h}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>¿Qué mejoras harías?</label>
+      <div class="row">
+        <input [(ngModel)]="newGreenHat" >
+        <button (click)="addItem('hatGreen', newGreenHat)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let h of data.hatGreen">{{h}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>¿Qué podría salir mal si aplicaras esos cambios?</label>
+      <div class="row">
+        <input [(ngModel)]="newBlackHat">
+        <button (click)="addItem('hatBlack', newBlackHat)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let h of data.hatBlack">{{h}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>¿Cómo te beneficiarías si aplicaras esos cambios?</label>
+      <div class="row">
+        <input [(ngModel)]="newYellowHat" >
+        <button (click)="addItem('hatYellow', newYellowHat)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let h of data.hatYellow">{{h}}</li></ul>
+    </div>
+
+    <div class="section">
+      <label>¿Qué solución consideras que adaptaría todos los aspectos anteriores?</label>
+      <div class="row">
+        <input [(ngModel)]="newBlueHat">
+        <button (click)="addItem('hatBlue', newBlueHat)">Agregar</button>
+      </div>
+      <ul><li *ngFor="let h of data.hatBlue">{{h}}</li></ul>
+    </div>
+
+
+    <button type="button" class="submit-btn" (click)="submit()">Generar Diagramas</button>
+    <button type="button" class="clear-btn" (click)="limpiarDatos()">Limpiar datos</button>
   </div>
 </div>

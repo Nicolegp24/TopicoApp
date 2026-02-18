@@ -11,35 +11,35 @@
   <div class="diagram-section">
     <p><strong>Actores:</strong></p>
     <div class="card-container">
-      <div class="card" *ngFor="let s of data.stakeholders">{{s}}</div>
+      <div class="card" *ngFor="let s of data.actors">{{s}}</div>
     </div>
   </div>
 
   <div class="diagram-section">
     <p><strong>Transformación:</strong></p>
     <div class="card-container">
-      <div class="card"><span>{{data.problem}}</span></div>
+      <div class="card"><span>{{data.transformation}}</span></div>
     </div>
   </div>
 
   <div class="diagram-section">
     <p><strong>Weltanschauung:</strong></p>
     <div class="card-container">
-      <div class="card" *ngFor="let s of data.internalFactors">{{s}}</div>
+      <div class="card" *ngFor="let s of data.weltanschauung">{{s}}</div>
     </div>
   </div>
 
   <div class="diagram-section">
     <p><strong>Dueño:</strong></p>
     <div class="card-container">
-      <div class="card" *ngFor="let s of data.stakeholders">{{s}}</div>
+      <div class="card" *ngFor="let s of data.owner">{{s}}</div>
     </div>
   </div>
 
   <div class="diagram-section">
-    <p><strong>Ambiente:</strong></p>
+    <p><strong>Ambiente / Contexto:</strong></p>
     <div class="card-container">
-      <div class="card" *ngFor="let s of data.externalFactors">{{s}}</div>
+      <div class="card">{{data.context}}</div>
     </div>
   </div>
 </div>

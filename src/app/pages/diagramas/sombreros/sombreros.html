@@ -4,42 +4,42 @@
   <div class="sombrero sombrero-blanco">
     <p><strong>Sombrero Blanco (Datos):</strong></p>
     <div class="card-container">
-      <div class="card">{{data.context}}</div>
+      <div class="card">{{data.hatWhite}}</div>
     </div>
   </div>
 
   <div class="sombrero sombrero-rojo">
     <p><strong>Sombrero Rojo (Emociones):</strong></p>
     <div class="card-container">
-      <div class="card">{{data.problem}}</div>
+      <div class="card">{{data.hatRed}}</div>
     </div>
   </div>
 
   <div class="sombrero sombrero-negro">
     <p><strong>Sombrero Negro (Riesgos):</strong></p>
     <div class="card-container">
-      <div class="card" *ngFor="let w of data.weaknesses">{{w}}</div>
+      <div class="card" *ngFor="let w of data.hatBlack">{{w}}</div>
     </div>
   </div>
 
   <div class="sombrero sombrero-amarillo">
     <p><strong>Sombrero Amarillo (Beneficios):</strong></p>
     <div class="card-container">
-      <div class="card" *ngFor="let s of data.strengths">{{s}}</div>
+      <div class="card" *ngFor="let s of data.hatYellow">{{s}}</div>
     </div>
   </div>
 
   <div class="sombrero sombrero-verde">
     <p><strong>Sombrero Verde (Creatividad):</strong></p>
     <div class="card-container">
-      <div class="card" *ngFor="let s of data.strengths">{{s}}</div>
+      <div class="card" *ngFor="let s of data.hatGreen">{{s}}</div>
     </div>
   </div>
 
   <div class="sombrero sombrero-azul">
     <p><strong>Sombrero Azul (Dinámica):</strong></p>
     <div class="card-container">
-      <div class="card" *ngFor="let s of data.strengths">{{s}}</div>
+      <div class="card" *ngFor="let s of data.hatBlue">{{s}}</div>
     </div>
   </div>
 </div>

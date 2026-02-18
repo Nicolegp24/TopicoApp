@@ -7,6 +7,7 @@ interface ParetoItem {
   impact: number;
   percentage: number;
   cumulative: number;
+  highlight: boolean; // para marcar el 80%
 }
 
 @Component({
@@ -19,7 +20,6 @@ interface ParetoItem {
 export class Pareto implements OnInit {
 
   items: ParetoItem[] = [];
-  totalImpact = 0;
 
   constructor(private service: AnalysisService) {}
 
@@ -28,22 +28,35 @@ export class Pareto implements OnInit {
 
     if (!data || !data.causes.length) return;
 
-    const sorted = [...data.causes]
-      .sort((a, b) => b.impact - a.impact);
+    // Generar una lista plana con todas las causas y subcausas
+    const flattenCauses = (causes: any[]): any[] => {
+      let result: any[] = [];
+      for (let c of causes) {
+        result.push({ name: c.name, impact: c.impact });
+        if (c.subCauses?.length) {
+          result = result.concat(flattenCauses(c.subCauses));
+        }
+      }
+      return result;
+    };
 
-    this.totalImpact = sorted.reduce((sum, c) => sum + c.impact, 0);
+    const allCauses = flattenCauses(data.causes);
 
+    // Ordenar de mayor a menor impacto
+    const sorted = allCauses.sort((a, b) => b.impact - a.impact);
+
+    const totalImpact = sorted.reduce((sum, c) => sum + c.impact, 0);
     let cumulative = 0;
 
     this.items = sorted.map(c => {
-      const percentage = (c.impact / this.totalImpact) * 100;
+      const percentage = (c.impact / totalImpact) * 100;
       cumulative += percentage;
-
       return {
         name: c.name,
         impact: c.impact,
         percentage,
-        cumulative
+        cumulative,
+        highlight: cumulative <= 80 // resaltar hasta llegar al 80%
       };
     });
   }

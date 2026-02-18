@@ -29,7 +29,9 @@ import { Sombreros } from './pages/diagramas/sombreros/sombreros';
 import { Ishikawa } from './pages/diagramas/ishikawa/ishikawa';
 import { Pareto } from './pages/diagramas/pareto/pareto';
 
-
+import { Opiniones } from './pages/opiniones/opiniones';
+import { Opinion1 } from './pages/opiniones/opinion1/opinion1';
+import { Opinion2 } from './pages/opiniones/opinion2/opinion2';
 
 export const routes: Routes = [
   {path: '', component: Home},
@@ -58,7 +60,11 @@ export const routes: Routes = [
   {path: 'catwda', component: Catwda},
   {path: 'sombreros', component: Sombreros},
   {path: 'ishikawa', component: Ishikawa},
-  {path: 'pareto', component: Pareto }
+  {path: 'pareto', component: Pareto },
+
+  {path: 'opiniones', component: Opiniones},
+  {path: 'opiniones/opinion1', component: Opinion1},
+  {path: 'opiniones/opinion2', component: Opinion2}
 
 ];
 

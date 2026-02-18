@@ -1,21 +1,35 @@
 import { Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-export interface Cause {
+export interface CauseNode {
   name: string;
   impact: number;
+  subCauses?: CauseNode[];
 }
 
 export interface AnalysisData {
   problem: string;
-  context: string;
-  causes: Cause[];
+  context?: string;
+  causes: CauseNode[];
   effects: string[];
   internalFactors: string[];
   externalFactors: string[];
   strengths: string[];
   weaknesses: string[];
   stakeholders: string[];
+  // Nuevos para CATWDA
+  actors: string[];
+  transformation: string[];
+  weltanschauung: string[];
+  owner: string[];
+  environment: string[];
+  // Opcional: para 6 sombreros podrías agregar arrays por color
+  hatWhite?: string[];
+  hatRed?: string[];
+  hatBlue?: string[];
+  hatGreen?: string[];
+  hatBlack?: string[];
+  hatYellow?: string[];
 }
 
 @Injectable({
@@ -37,8 +51,20 @@ export class AnalysisService {
     externalFactors: [],
     strengths: [],
     weaknesses: [],
-    stakeholders: []
+    stakeholders: [],
+    actors: [],
+    transformation: [],
+    weltanschauung: [],
+    owner: [],
+    environment: [],
+    hatWhite: [],
+    hatRed: [],
+    hatBlue: [],
+    hatGreen: [],
+    hatBlack: [],
+    hatYellow: []
   };
+
 
   constructor() {
     this.load();
@@ -77,7 +103,18 @@ export class AnalysisService {
       externalFactors: [],
       strengths: [],
       weaknesses: [],
-      stakeholders: []
+      stakeholders: [],
+      actors: [],
+      transformation: [],
+      weltanschauung: [],
+      owner: [],
+      environment: [],
+      hatWhite: [],
+      hatRed: [],
+      hatBlue: [],
+      hatGreen: [],
+      hatBlack: [],
+      hatYellow: []
     };
 
     if (this.isBrowser) {
