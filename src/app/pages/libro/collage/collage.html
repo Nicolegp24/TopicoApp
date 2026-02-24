@@ -1,0 +1,31 @@
+<div class="collage-container">
+  <div class="grid">
+
+    <div 
+      class="card-wrapper"
+      *ngFor="let card of cards; let i = index"
+      [class.rotate-left]="i % 2 === 0"
+      [class.rotate-right]="i % 2 !== 0"
+      (click)="toggle(card)"
+    >
+
+      <div class="card" [class.flipped]="card.flipped">
+
+        <div class="card-face card-front">
+          <img [src]="card.image" alt="collage">
+          <div class="overlay">
+            <h3>{{card.title}}</h3>
+          </div>
+        </div>
+
+        <div class="card-face card-back">
+          <h3>{{card.title}}</h3>
+          <p>{{card.text}}</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

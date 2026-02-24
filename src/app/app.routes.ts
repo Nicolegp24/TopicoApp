@@ -33,6 +33,11 @@ import { Opiniones } from './pages/opiniones/opiniones';
 import { Opinion1 } from './pages/opiniones/opinion1/opinion1';
 import { Opinion2 } from './pages/opiniones/opinion2/opinion2';
 
+import { Libro } from './pages/libro/libro';
+import { Collage } from './pages/libro/collage/collage';
+import { Video } from './pages/libro/video/video';
+import { Presentacion } from './pages/libro/presentacion/presentacion';
+
 export const routes: Routes = [
   {path: '', component: Home},
   {path: 'home', component: Home},
@@ -64,8 +69,12 @@ export const routes: Routes = [
 
   {path: 'opiniones', component: Opiniones},
   {path: 'opiniones/opinion1', component: Opinion1},
-  {path: 'opiniones/opinion2', component: Opinion2}
+  {path: 'opiniones/opinion2', component: Opinion2},
 
+  {path: 'libro', component: Libro},
+  {path: 'libro/collage', component: Collage},
+  {path: 'libro/video', component: Video},
+  {path: 'libro/presentacion', component: Presentacion}
 ];
 
 
